@@ -1,0 +1,100 @@
+.NavBar{
+    width: 100%;
+    height: 110px;
+    /* background: rgba(255, 255, 255, 0.1); */
+    background: rgba(0, 0, 0 , 0.2);
+    backdrop-filter: blur(10px);
+    position:relative;
+    top: -102px;
+    z-index: 2;
+}
+.right_side{
+    
+    /* overflow-x: scroll; */
+}
+.nav_contents{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+}   
+.left_side{
+    position: relative;
+    height: 100px;
+    min-width: 400px;
+    /* top: 250px;
+     */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+.search-box{
+    position: absolute;
+    top: 20%;
+    left: 70px;
+    background: #2f3640;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    z-index: 1;
+}
+.search-box:hover > .search-txt{
+    width: 240px;
+    padding: 0 6px;
+}
+.search-box:hover > .search-btn{
+    background: white;
+    border-radius: 50%;
+}
+.search-btn{
+    color: #e84118;
+    float: left;
+    width: 40px;
+    height: 40px;
+    background: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 50%;
+}
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: right;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.5s;
+    line-height: 40px;
+    width: 0;
+}
+.buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 26px; */
+    margin-left: 140px;
+}
+.buttons > .btn{
+    outline: none;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    height: 40px;
+    border-radius: 30px;
+    border-color: transparent;
+    margin-left: 5px;
+    width: 80px;
+    transition: 0.3s ease ;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+}
+.buttons > .btn:hover{
+    background: #e84218d5;
+}
+.buttons > .btn:nth-child(2):hover{
+    background: rgba(255, 255, 255, 0.781);
+    color: black;
+}
