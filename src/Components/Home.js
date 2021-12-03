@@ -5,6 +5,7 @@ import requests from './Requests';
 import "./Home.css"
 import Footer from './Footer';
 
+
 function Home() {
     return (
         <div>
@@ -14,7 +15,8 @@ function Home() {
                 fetchUrl={requests.fetchNetflixOriginals}
                 isLargeRow
              />
-             <Row 
+
+             <Row    
                 title="Trending Now"
                 fetchUrl={requests.fetchTrending}
                 
@@ -24,6 +26,7 @@ function Home() {
                 fetchUrl={requests.fetchTopRated}
                 
              />
+
              <Row 
                 title="Action Movies"
                 fetchUrl={requests.fetchActionMovies}

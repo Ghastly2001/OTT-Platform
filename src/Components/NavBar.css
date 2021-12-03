@@ -98,3 +98,6 @@
     background: rgba(255, 255, 255, 0.781);
     color: black;
 }
+.btn{
+    cursor: pointer;
+}

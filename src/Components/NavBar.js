@@ -21,8 +21,8 @@ function NavBar() {
           <div className="buttons">
             <button className="btn">HOME</button>
             <button className="btn">FIND</button>
-            <button className="btn">LIVE</button>
-          </div>
+            <button className="btn">LOGIN</button>
+            </div>
         </div>
         <div className="right_side">
         <Container>
@@ -74,6 +74,7 @@ const Container = styled.div `
     height: 80px; 
     grid-gap:2px;
     margin-right:10px;
+    
 `
 const Wrap = styled.div `
     border-radius: 7px;
@@ -83,6 +84,7 @@ const Wrap = styled.div `
     transition : all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
     overflow: hidden;
     position: relative;
+    
 
     img{
         inset: 0;

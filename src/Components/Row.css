@@ -77,3 +77,16 @@
   z-index: 1;
   overflow:visible;
 }
+.video{
+  position: relative;
+  top: 10px;
+  left: 230px;
+  z-index: 100;
+  width: 750px;
+  border-radius: 20px;
+
+}
+.helo{
+  z-index: 1000;
+  color: beige;
+}

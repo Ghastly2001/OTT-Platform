@@ -30,6 +30,8 @@ function ImgSlider() {
       },
     ],
   };
+
+
   return (
     <Body>
     <Carausel {...settings}>
