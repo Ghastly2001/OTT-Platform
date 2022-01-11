@@ -2,6 +2,7 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import "./NavBar.css";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 function NavBar() {
   return (
     <div className="NavBar">
@@ -20,8 +21,12 @@ function NavBar() {
           </div>
           <div className="buttons">
             <button className="btn">HOME</button>
-            <button className="btn">FIND</button>
-            <button className="btn">LOGIN</button>
+            <Link to="/special">
+            <button className="btn btn2">FIND</button>
+            </Link>
+            <Link to="/login" >
+            <button className="btn btn2" >LOGIN</button>
+            </Link>
             </div>
         </div>
         <div className="right_side">

@@ -101,3 +101,20 @@
 .btn{
     cursor: pointer;
 }
+.btn2{
+    color: white;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    height: 40px;
+    border-radius: 30px;
+    border-color: transparent;
+    margin-left: 5px;
+    width: 80px;
+    transition: 0.3s ease ;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+}
+.btn2:hover{
+    background: #e84218d5;
+}

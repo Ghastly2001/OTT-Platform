@@ -1,11 +1,56 @@
-import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import styled from "styled-components";
 import NavBar from "./NavBar";
+import axios from "../axios";
+import requests from "./Requests";
+import "./ImgSlider.css"
+import React, { useEffect, useState } from "react";
+import YouTube from "react-youtube";
+import movieTrailer from "movie-trailer";
 
 function ImgSlider() {
+
+  const [movie, setMovie] = useState([]);
+  const [movies, setMovies] = useState([]);
+  const [trailerUrl, setTrailerUrl] = useState("");
+
+  useEffect(() => {
+    async function fetchData() {
+      const request = await axios.get(requests.fetchNetflixOriginals);
+      setMovie(
+        request.data.results[
+          Math.floor(Math.random() * request.data.results.length - 1)
+        ]
+      );
+      return requests;
+    }
+    fetchData();
+  }, []);
+
+  const handleClick = (movie) =>{
+    console.log(movie)
+    if(trailerUrl){
+      setTrailerUrl('');
+    }
+    else{
+      movieTrailer(movie?.name || "").then((url)=>{
+          const urlParams = new URLSearchParams (new URL(url).search);
+          setTrailerUrl(urlParams.get('v'));
+      }).catch((err)=>(
+        console.log(err)
+      ))
+    }
+    
+  }
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars:{
+      autoplay: 1,
+    }
+  };
   let settings = {
     dots: true,
     infinite: true,
@@ -30,25 +75,27 @@ function ImgSlider() {
       },
     ],
   };
-
+  function truncate(string, n) {
+    return string?.length > n ? string.substr(0, n - 1) + "....." : string;
+  }
 
   return (
     <Body>
-    <Carausel {...settings}>
-      <Wrap>
-        <img src="https://images.unsplash.com/Ys-DBJeX0nE.JPG?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyfHx8fHx8MTYzNjk5MzIzMA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1440" />
-      </Wrap>
-      <Wrap>
-        <img src="https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyfHx8fHx8MTYzNjk5MzMwNg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1440" />
-      </Wrap>
-      <Wrap>
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyfHx8fHx8MTYzNjk5MzI5Mg&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1440" />
-      </Wrap>
-      <Wrap>
-        <img src="https://images.unsplash.com/photo-1488034976201-ffbaa99cbf5c?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=600&ixid=MnwxfDB8MXxyYW5kb218MHx8d2FsbHBhcGVyfHx8fHx8MTYzNjk5MzI3NA&ixlib=rb-1.2.1&q=80&utm_campaign=api-credit&utm_medium=referral&utm_source=unsplash_source&w=1440" />
-      </Wrap>
-      
-    </Carausel>
+      <Wrap >
+        <div onClick={()=>{
+          console.log(movie)
+        }} style={{
+        backgroundSize: "cover",
+        backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`,
+        backgroundPosition: "center center",
+        height: "600px",
+        width:"1440px",
+      }}>    <div className="trailer">{ trailerUrl && <YouTube className="video" videoId={trailerUrl} opts={opts}/>}</div><div className="contents"><span>{movie.name}</span><h2>Rating : {movie.vote_average}/10</h2><div className="hero"><h3>{truncate(movie?.overview, 300)}</h3></div>  <div className="banner_buttons">
+      <button className="banner_button1" onClick={()=>{
+        handleClick(movie)
+      }}>Watch Now</button>
+  </div></div></div>
+      </Wrap>      
     <NavBar />
     </Body>
   );
@@ -98,7 +145,46 @@ const Wrap = styled.div
     height: 100%;
     transition: 300ms;
     overflow-x: hidden;
-  }`
+  }
+   span{
+    margin-top:60vh;
+    padding-top:40vh;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+    margin-left:3vw;
+    background: #e84218d5;
+    font-size: 30px;
+    font-weight: 800;
+
+  }
+  h3{
+    padding-left: 3vw;
+    color: white;
+    font-weight: 400;
+    background: #0000004d;   
+    // border-radius: 10px;
+    // padding: 20px; 
+  }
+  .hero{
+    width:800px;
+  }
+  h2{
+    padding-left: 3vw;
+    color: white;
+    font-weight: 400;
+    background: #0000004d;   
+    // border-radius: 10px;
+    justify-content: center;
+    margin-bottom: 0px;
+    // padding-top: 15px;
+    margin-top: 6vh;
+    width: 160px;
+    }
+    .trailer{
+      position: absolute;
+      top:50px;
+    }`
 ;
 
 
