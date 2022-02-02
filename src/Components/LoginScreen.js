@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Footer from "./Footer";
 import "./LoginScreen.css";
 import SignUpScreen from "./SignUpScreen";
 
@@ -56,6 +57,7 @@ function LoginScreen() {
           </div>
         </div>
       </div>
+       {/*
       <div className="jumbotron">
         <div className="container_one">
           <div className="leftSection">
@@ -110,7 +112,7 @@ function LoginScreen() {
             Save your favourites easily and always have something to watch.
           </h2>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

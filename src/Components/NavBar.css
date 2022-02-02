@@ -12,6 +12,7 @@
     
     /* overflow-x: scroll; */
 }
+
 .nav_contents{
     display: flex;
     justify-content: space-between;
@@ -40,7 +41,7 @@
     z-index: 1;
 }
 .search-box:hover > .search-txt{
-    width: 240px;
+    width:120px;
     padding: 0 6px;
 }
 .search-box:hover > .search-btn{
@@ -58,6 +59,16 @@
     align-items: center;
     transition: 0.5s;
     border-radius: 50%;
+}
+.search-box > a > img{
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+}
+.search-box > input::placeholder{
+    color: #fff;
+    font-weight: 600;
+    padding-left: 10px;
 }
 .search-txt{
     border: none;

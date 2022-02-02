@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./Row.css";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
+import requests from "./Requests";
 
 function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
@@ -28,7 +29,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
       autoplay: 1,
     }
   };
-
+ 
   const handleClick = (movie) =>{
     if(trailerUrl){
       setTrailerUrl('');
@@ -76,3 +77,4 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
 }
 
 export default Row;
+

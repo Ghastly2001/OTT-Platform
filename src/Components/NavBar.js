@@ -2,23 +2,28 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import "./NavBar.css";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function NavBar() {
   return (
     <div className="NavBar">
       <div className="nav_contents">
         <div className="left_side">
+        <Link to="/profile">
           <div class="search-box">
             <input
+            disabled
               class="search-txt"
               type="text"
               name=""
-              placeholder="Type to search"
+              placeholder="EDIT PROFILE"
             />
             <a class="search-btn" href="#">
-              <FaSearch />
+               
+              <img src="https://occ-0-4345-3647.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABeJq55zKSZ9IxlWK5AlcFtgUdQXYckDyJBfMpoADfp4-9qdXH-trXEGdyfTJjUbG6j5WYZrOpkq4azag6qlIrEQ.png?r=95b" />
+              
             </a>
           </div>
+          </Link>
           <div className="buttons">
             <button className="btn">HOME</button>
             <Link to="/special">
@@ -119,3 +124,18 @@ const Wrap = styled.div `
         }
     }
 `
+
+
+
+
+// <div class="search-box">
+// <input
+//   class="search-txt"
+//   type="text"
+//   name=""
+//   placeholder="Type to search"
+// />
+// <a class="search-btn" href="#">
+//   <FaSearch />
+// </a>
+// </div>

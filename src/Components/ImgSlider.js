@@ -30,12 +30,12 @@ function ImgSlider() {
   }, []);
 
   const handleClick = (movie) =>{
-    console.log(movie)
+    console.log(movie.name)
     if(trailerUrl){
       setTrailerUrl('');
     }
     else{
-      movieTrailer(movie?.name || "").then((url)=>{
+      movieTrailer(movie.name || "").then((url)=>{
           const urlParams = new URLSearchParams (new URL(url).search);
           setTrailerUrl(urlParams.get('v'));
       }).catch((err)=>(
