@@ -3,6 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import "./NavBar.css";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 function NavBar() {
   return (
     <div className="NavBar">

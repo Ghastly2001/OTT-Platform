@@ -13,9 +13,6 @@ import ProfileScreen from "./Components/ProfileScreen";
 function App() {
   const user = auth.currentUser;
   // const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(user);
-  }, []);
   
  
 
@@ -41,24 +38,20 @@ function App() {
   return (
     <div className="app">
       <Router>
-        {!user ? (
-          <LoginScreen />
-        ) : (
           <Switch>
-            <Route exact path="/">
-              <Home />
+          <Route exact path="/">
+          <Home />
             </Route>
-            <Route exact path="/profile">
+            <Route path="/login">
+              <LoginScreen />
+            </Route>
+            <Route path="/profile">
               <ProfileScreen />
             </Route>
             <Route path="/special">
               <SpecialMode />
             </Route>
-            <Route path="/login">
-              <LoginScreen />
-            </Route>
           </Switch>
-        )}
       </Router>
     </div>
   );

@@ -90,7 +90,7 @@ function ImgSlider() {
         backgroundPosition: "center center",
         height: "600px",
         width:"1440px",
-      }}>    <div className="trailer">{ trailerUrl && <YouTube className="video" videoId={trailerUrl} opts={opts}/>}</div><div className="contents"><span>{movie.name}</span><h2>Rating : {movie.vote_average}/10</h2><div className="hero"><h3>{truncate(movie?.overview, 300)}</h3></div>  <div className="banner_buttons">
+      }}>    <div className="trailer">{ trailerUrl && <YouTube className="video" videoId={trailerUrl} opts={opts}/>}</div><div className="contents"><span>{movie?.name}</span><h2>Rating : {movie.vote_average}/10</h2><div className="hero"><h3>{truncate(movie?.overview, 300)}</h3></div>  <div className="banner_buttons">
       <button className="banner_button1" onClick={()=>{
         handleClick(movie)
       }}>Watch Now</button>

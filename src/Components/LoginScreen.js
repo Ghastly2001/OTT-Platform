@@ -40,7 +40,7 @@ function LoginScreen() {
               <div className="loginScreen__input">
                 <form>
                   <input type="email" />
-                  {/* <label for="email">Email</label> */}
+                  <label for="email">Email</label>
                   <button
                     onClick={() => {
                       setSignIn(true);  
@@ -57,7 +57,7 @@ function LoginScreen() {
           </div>
         </div>
       </div>
-       {/*
+       
       <div className="jumbotron">
         <div className="container_one">
           <div className="leftSection">
@@ -112,7 +112,7 @@ function LoginScreen() {
             Save your favourites easily and always have something to watch.
           </h2>
         </div>
-      </div> */}
+      </div>
     </div>
   );
 }

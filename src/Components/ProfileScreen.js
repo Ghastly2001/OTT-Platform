@@ -1,11 +1,12 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { selectUser } from "../features/userSlice";
+import { Link } from "react-router-dom";
 
-function ProfileScreen() {
-  const user  = useSelector(selectUser);
+function ProfileScreen({user}) {
   return <div className="profileScreen">
-      <h1>{user.email}</h1>
+      <h1> WELCOME {user.email}</h1>
+      <Link to='/'>
+      <button style={{padding: "1rem"}}>Start Adventure</button>
+      </Link>
   </div>;
 }
 

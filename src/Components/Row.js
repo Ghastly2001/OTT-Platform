@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import "./Row.css";
 import YouTube from "react-youtube";
 import movieTrailer from "movie-trailer";
-import requests from "./Requests";
+// import requests from "./Requests";
 
 function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
@@ -56,7 +56,7 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
             key={movie.id}
             onClick={()=>handleClick(movie)}
               onMouseOver={()=>{
-               return movie.vote_average, movie.overview;
+               return movie.vote_average;
             }}
             className={`row__poster ${isLargeRow && "row__posterLarge"}`}
             src={`${base_url}${

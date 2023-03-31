@@ -8,7 +8,7 @@ import Footer from './Footer';
 
 function Home() {
     return (
-        <div>
+         <div>
             <ImgSlider/>
               <Row 
                 title="NETFLIX ORIGINALS"
@@ -53,8 +53,10 @@ function Home() {
                 fetchUrl={requests.fetchDocumentaries}
                 
              />
-             <Footer />
-        </div>
+                <Footer/>
+             </div>
+          
+        
     )
 }
 
